@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RIOT ZINE - Fanzine Punk DIY</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Creepster&family=Special+Elite&family=Permanent+Marker&display=swap");
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background: linear-gradient(45deg, #2a2a2a, #1a1a1a);
+        font-family: "Special Elite", monospace;
+        overflow-x: hidden;
+        position: relative;
+      }
+
+      /* Textura de papel arrugado */
+      body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: radial-gradient(
+            circle at 20% 50%,
+            transparent 20%,
+            rgba(255, 255, 255, 0.02) 21%,
+            rgba(255, 255, 255, 0.02) 34%,
+            transparent 35%,
+            transparent
+          ),
+          linear-gradient(0deg, rgba(255, 255, 255, 0.01) 50%, transparent 50%);
+        pointer-events: none;
+        z-index: 1;
+      }
+
+      .fanzine-container {
+        max-width: 900px;
+        margin: 0 auto;
+        background: #f4f1e8;
+        position: relative;
+        z-index: 2;
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+        transform: rotate(-0.5deg);
+      }
+
+      /* Header con estilo punk */
+      .header {
+        background: linear-gradient(45deg, #ff0040, #8b0000);
+        padding: 20px;
+        text-align: center;
+        position: relative;
+        border: 5px solid #000;
+        transform: rotate(0.3deg);
+      }
+
+      .header::before {
+        content: "";
+        position: absolute;
+        top: -10px;
+        left: -10px;
+        right: -10px;
+        bottom: -10px;
+        background: repeating-linear-gradient(
+          45deg,
+          #000,
+          #000 5px,
+          #ff0040 5px,
+          #ff0040 10px
+        );
+        z-index: -1;
+      }
+
+      .main-title {
+        font-family: "Creepster", cursive;
+        font-size: 4rem;
+        color: #fff;
+        text-shadow: 4px 4px 0px #000, 8px 8px 0px #333;
+        transform: rotate(-2deg);
+        letter-spacing: 8px;
+        margin-bottom: 10px;
+      }
+
+      .subtitle {
+        font-family: "Permanent Marker", cursive;
+        font-size: 1.2rem;
+        color: #ffff00;
+        transform: rotate(1deg);
+        text-shadow: 2px 2px 0px #000;
+      }
+
+      /* Secciones del fanzine */
+      .section {
+        margin: 30px 20px;
+        padding: 25px;
+        background: #f9f6f0;
+        border: 3px solid #000;
+        position: relative;
+        transform: rotate(0.2deg);
+        box-shadow: 5px 5px 0px #333;
+      }
+
+      .section:nth-child(even) {
+        transform: rotate(-0.3deg);
+        background: #f0f0e8;
+      }
+
+      .section-title {
+        font-family: "Permanent Marker", cursive;
+        font-size: 2.5rem;
+        color: #ff0040;
+        text-shadow: 2px 2px 0px #000;
+        margin-bottom: 20px;
+        transform: rotate(-1deg);
+        display: inline-block;
+      }
+
+      /* Estilo de recortes y collage */
+      .collage-item {
+        display: inline-block;
+        margin: 10px;
+        padding: 15px;
+        background: #fff;
+        border: 2px solid #000;
+        transform: rotate(var(--rotation, 0deg));
+        box-shadow: 3px 3px 0px #666;
+        font-family: "Special Elite", monospace;
+        position: relative;
+      }
+
+      .collage-item::before {
+        content: "";
+        position: absolute;
+        top: -5px;
+        left: 50%;
+        width: 20px;
+        height: 20px;
+        background: #ff0040;
+        border-radius: 50%;
+        transform: translateX(-50%);
+        border: 2px solid #000;
+      }
+
+      .sticker {
+        display: inline-block;
+        padding: 8px 15px;
+        background: #ffff00;
+        border: 2px solid #000;
+        border-radius: 50px;
+        font-family: "Permanent Marker", cursive;
+        font-size: 0.9rem;
+        color: #000;
+        margin: 5px;
+        transform: rotate(var(--sticker-rotation, 0deg));
+        box-shadow: 2px 2px 0px #333;
+      }
+
+      /* Vinyl records */
+      .vinyl {
+        width: 80px;
+        height: 80px;
+        background: #000;
+        border-radius: 50%;
+        position: relative;
+        display: inline-block;
+        margin: 10px;
+        box-shadow: 3px 3px 0px #333;
+      }
+
+      .vinyl::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 20px;
+        height: 20px;
+        background: #ff0040;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      .vinyl::after {
+        content: "";
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        right: 2px;
+        bottom: 2px;
+        border: 1px solid #333;
+        border-radius: 50%;
+      }
+
+      /* Texto desgastado */
+      .distressed-text {
+        font-family: "Special Elite", monospace;
+        font-size: 1.1rem;
+        line-height: 1.6;
+        color: #2a2a2a;
+        margin: 15px 0;
+        text-align: justify;
+      }
+
+      /* Elementos DIY */
+      .diy-element {
+        border: 3px dashed #ff0040;
+        padding: 20px;
+        margin: 20px 0;
+        background: #fff;
+        transform: rotate(-0.5deg);
+        position: relative;
+      }
+
+      .diy-element::before {
+        content: "✂️";
+        position: absolute;
+        top: -15px;
+        right: -15px;
+        font-size: 2rem;
+        background: #ffff00;
+        padding: 5px;
+        border: 2px solid #000;
+        border-radius: 50%;
+      }
+
+      /* Botones punk */
+      .punk-button {
+        background: #000;
+        color: #fff;
+        border: 3px solid #ff0040;
+        padding: 12px 25px;
+        font-family: "Permanent Marker", cursive;
+        font-size: 1.1rem;
+        cursor: pointer;
+        transform: rotate(-1deg);
+        transition: all 0.3s ease;
+        margin: 10px;
+        display: inline-block;
+        text-decoration: none;
+      }
+
+      .punk-button:hover {
+        background: #ff0040;
+        color: #000;
+        transform: rotate(1deg) scale(1.05);
+        box-shadow: 5px 5px 0px #333;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .main-title {
+          font-size: 2.5rem;
+          letter-spacing: 4px;
+        }
+
+        .section-title {
+          font-size: 2rem;
+        }
+
+        .fanzine-container {
+          margin: 10px;
+          transform: rotate(0deg);
+        }
+      }
+
+      /* Animaciones */
+      @keyframes shake {
+        0%,
+        100% {
+          transform: translateX(0);
+        }
+        25% {
+          transform: translateX(-2px);
+        }
+        75% {
+          transform: translateX(2px);
+        }
+      }
+
+      .shake:hover {
+        animation: shake 0.5s ease-in-out;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="fanzine-container">
+      <!-- Header -->
+      <header class="header">
+        <h1 class="main-title shake">RIOT ZINE</h1>
+        <p class="subtitle">UNDERGROUND • DIY • PUNK CULTURE</p>
+      </header>
+
+      <!-- Sección UPCYCLING -->
+      <section class="section">
+        <h2 class="section-title">UPCYCLING</h2>
+
+        <div class="collage-item" style="--rotation: 2deg">
+          <strong>TRANSFORMA TU BASURA</strong><br />
+          Convierte latas en amplificadores caseros
+        </div>
+
+        <div class="collage-item" style="--rotation: -3deg">
+          <strong>PARCHES PUNK</strong><br />
+          Usa ropa vieja para crear parches únicos
+        </div>
+
+        <div class="sticker" style="--sticker-rotation: 5deg">RECICLA</div>
+        <div class="sticker" style="--sticker-rotation: -2deg">REUTILIZA</div>
+        <div class="sticker" style="--sticker-rotation: 3deg">REBÉLATE</div>
+
+        <div class="diy-element">
+          <p class="distressed-text">
+            <strong>TUTORIAL:</strong> Toma una chaqueta vieja, añade tachuelas,
+            parches de bandas y pintura en spray. ¡No hay reglas! La
+            imperfección es perfecta en el mundo punk. Cada rasguño cuenta una
+            historia.
+          </p>
+        </div>
+
+        <button
+          class="punk-button shake"
+          onclick="alert('¡PUNK NO ESTÁ MUERTO!')"
+        >
+          HAZLO TÚ MISMO
+        </button>
+      </section>
+
+      <!-- Sección DIY -->
+      <section class="section">
+        <h2 class="section-title">DIY PROJECTS</h2>
+
+        <div class="collage-item" style="--rotation: -1deg">
+          <strong>FANZINE CASERO</strong><br />
+          Tijeras + Pegamento + Rebeldía = Arte
+        </div>
+
+        <div class="collage-item" style="--rotation: 4deg">
+          <strong>SERIGRAFÍA PUNK</strong><br />
+          Estampa tus propias camisetas
+        </div>
+
+        <div class="collage-item" style="--rotation: -2deg">
+          <strong>INSTRUMENTOS CASEROS</strong><br />
+          Construye tu propia guitarra de cartón
+        </div>
+
+        <div class="sticker" style="--sticker-rotation: -4deg">NO FUTURE</div>
+        <div class="sticker" style="--sticker-rotation: 1deg">ANARCHY</div>
+
+        <p class="distressed-text">
+          El DIY no es solo una técnica, es una filosofía. Crear con tus propias
+          manos es un acto de resistencia contra la cultura del consumo masivo.
+          Cada proyecto DIY es único, imperfecto y auténtico.
+        </p>
+
+        <div class="diy-element">
+          <strong>MATERIALES BÁSICOS:</strong><br />
+          • Cartón de cajas viejas<br />
+          • Revistas para recortar<br />
+          • Pegamento en barra<br />
+          • Marcadores permanentes<br />
+          • Actitud punk 🤘
+        </div>
+      </section>
+
+      <!-- Sección VINYLS -->
+      <section class="section">
+        <h2 class="section-title">VINYL CULTURE</h2>
+
+        <div class="vinyl shake"></div>
+        <div class="vinyl shake"></div>
+        <div class="vinyl shake"></div>
+
+        <div class="collage-item" style="--rotation: 3deg">
+          <strong>THE CLASH</strong><br />
+          London Calling - Esencial
+        </div>
+
+        <div class="collage-item" style="--rotation: -1deg">
+          <strong>SEX PISTOLS</strong><br />
+          Never Mind the Bollocks
+        </div>
+
+        <div class="collage-item" style="--rotation: 2deg">
+          <strong>DEAD KENNEDYS</strong><br />
+          Fresh Fruit for Rotting Vegetables
+        </div>
+
+        <div class="sticker" style="--sticker-rotation: -3deg">ANALOG</div>
+        <div class="sticker" style="--sticker-rotation: 2deg">REAL SOUND</div>
+
+        <p class="distressed-text">
+          Los vinilos no son solo música, son rituales. El crujido del needle
+          drop, las portadas como obras de arte, la experiencia completa del
+          álbum. En la era digital, el vinyl es resistencia pura.
+        </p>
+
+        <button class="punk-button shake" onclick="playVinylSound()">
+          SPIN THE RECORD
+        </button>
+      </section>
+
+      <!-- Sección STICKERS & COLLAGE -->
+      <section class="section">
+        <h2 class="section-title">STICKER ART</h2>
+
+        <div style="text-align: center; margin: 20px 0">
+          <div class="sticker" style="--sticker-rotation: 5deg">
+            PUNK'S NOT DEAD
+          </div>
+          <div class="sticker" style="--sticker-rotation: -2deg">DESTROY</div>
+          <div class="sticker" style="--sticker-rotation: 3deg">
+            QUESTION EVERYTHING
+          </div>
+          <div class="sticker" style="--sticker-rotation: -4deg">
+            DIY OR DIE
+          </div>
+          <div class="sticker" style="--sticker-rotation: 1deg">RESIST</div>
+          <div class="sticker" style="--sticker-rotation: -1deg">
+            UNDERGROUND
+          </div>
+          <div class="sticker" style="--sticker-rotation: 4deg">MAKE NOISE</div>
+        </div>
+
+        <div class="diy-element">
+          <p class="distressed-text">
+            <strong>MANIFIESTO STICKER:</strong><br />
+            Pega tu mensaje en cada superficie. Las calles son tu galería. Cada
+            sticker es un grito silencioso contra la conformidad. ¡Que tu arte
+            invada la ciudad!
+          </p>
+        </div>
+
+        <div class="collage-item" style="--rotation: -2deg">
+          <strong>TÉCNICA COLLAGE</strong><br />
+          Recorta + Pega + Destruye + Crea
+        </div>
+
+        <button class="punk-button shake" onclick="createSticker()">
+          CREAR STICKER
+        </button>
+      </section>
+    </div>
+
+    <script>
+      function playVinylSound() {
+        // Simular sonido de vinyl
+        const messages = [
+          "🎵 *crackle* *pop* 🎵",
+          "¡El sonido analógico es real!",
+          "*needle drop* 🎶",
+          "Vinyl > Digital siempre",
+        ];
+        alert(messages[Math.floor(Math.random() * messages.length)]);
+      }
+
+      function createSticker() {
+        const stickerTexts = [
+          "PUNK FOREVER",
+          "DIY REVOLUTION",
+          "NO GODS NO MASTERS",
+          "QUESTION AUTHORITY",
+          "MAKE ART NOT WAR",
+        ];
+
+        const randomText =
+          stickerTexts[Math.floor(Math.random() * stickerTexts.length)];
+        const randomRotation = Math.random() * 10 - 5;
+
+        const newSticker = document.createElement("div");
+        newSticker.className = "sticker";
+        newSticker.style.setProperty(
+          "--sticker-rotation",
+          randomRotation + "deg"
+        );
+        newSticker.textContent = randomText;
+        newSticker.style.position = "fixed";
+        newSticker.style.top = Math.random() * 80 + 10 + "%";
+        newSticker.style.left = Math.random() * 80 + 10 + "%";
+        newSticker.style.zIndex = "1000";
+
+        document.body.appendChild(newSticker);
+
+        // Remover después de 3 segundos
+        setTimeout(() => {
+          newSticker.remove();
+        }, 3000);
+      }
+
+      // Añadir efectos de papel arrugado al hacer scroll
+      window.addEventListener("scroll", () => {
+        const scrolled = window.pageYOffset;
+        const parallax = scrolled * 0.1;
+        document.querySelector(
+          ".fanzine-container"
+        ).style.transform = `rotate(-0.5deg) translateY(${parallax}px)`;
+      });
+
+      // Efectos de hover aleatorios
+      document.querySelectorAll(".collage-item").forEach((item) => {
+        item.addEventListener("mouseenter", () => {
+          item.style.transform = `rotate(${
+            Math.random() * 10 - 5
+          }deg) scale(1.05)`;
+        });
+
+        item.addEventListener("mouseleave", () => {
+          const originalRotation =
+            item.style.getPropertyValue("--rotation") || "0deg";
+          item.style.transform = `rotate(${originalRotation})`;
+        });
+      });
+    </script>
+    <script>
+      (function () {
+        function c() {
+          var b = a.contentDocument || a.contentWindow.document;
+          if (b) {
+            var d = b.createElement("script");
+            d.innerHTML =
+              "window.__CF$cv$params={r:'97d50ce0e72eb20e',t:'MTc1NzU3MTUzMy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";
+            b.getElementsByTagName("head")[0].appendChild(d);
+          }
+        }
+        if (document.body) {
+          var a = document.createElement("iframe");
+          a.height = 1;
+          a.width = 1;
+          a.style.position = "absolute";
+          a.style.top = 0;
+          a.style.left = 0;
+          a.style.border = "none";
+          a.style.visibility = "hidden";
+          document.body.appendChild(a);
+          if ("loading" !== document.readyState) c();
+          else if (window.addEventListener)
+            document.addEventListener("DOMContentLoaded", c);
+          else {
+            var e = document.onreadystatechange || function () {};
+            document.onreadystatechange = function (b) {
+              e(b);
+              "loading" !== document.readyState &&
+                ((document.onreadystatechange = e), c());
+            };
+          }
+        }
+      })();
+    </script>
+  </body>
+</html>
