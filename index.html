@@ -3,9 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>STREET ZINE - Ghetto Underground</title>
+    <title>RE:BAROQUE - Galería Underground</title>
     <style>
-      @import url("https://fonts.googleapis.com/css2?family=Creepster&family=Special+Elite&family=Permanent+Marker&family=Courier+Prime&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Creepster&family=Special+Elite&family=Permanent+Marker&family=Courier+Prime&family=Bebas+Neue&display=swap");
 
       * {
         margin: 0;
@@ -13,14 +13,19 @@
         box-sizing: border-box;
       }
 
+      html,
       body {
-        background: linear-gradient(45deg, #1a1a1a, #0d0d0d);
+        height: 100%;
+        width: 100%;
+      }
+
+      body {
+        background: linear-gradient(45deg, #0a0a0a, #1a1a1a);
         font-family: "Courier Prime", monospace;
         overflow-x: hidden;
         position: relative;
       }
 
-      /* Textura de papel arrugado */
       body::before {
         content: "";
         position: fixed;
@@ -41,44 +46,42 @@
         z-index: 1;
       }
 
-      .fanzine-container {
-        max-width: 900px;
+      .gallery-container {
+        max-width: 1000px;
         margin: 0 auto;
-        background: #e8e0d0;
+        background: #1a1514;
         background-image: radial-gradient(
             circle at 30% 20%,
-            rgba(139, 69, 19, 0.1) 2px,
+            rgba(139, 0, 0, 0.1) 2px,
             transparent 2px
           ),
           radial-gradient(
             circle at 70% 80%,
-            rgba(101, 67, 33, 0.15) 1px,
+            rgba(101, 0, 0, 0.15) 1px,
             transparent 1px
           ),
-          linear-gradient(45deg, rgba(139, 69, 19, 0.05) 25%, transparent 25%);
+          linear-gradient(45deg, rgba(139, 0, 0, 0.05) 25%, transparent 25%);
         position: relative;
         z-index: 2;
-        box-shadow: 0 0 30px rgba(0, 0, 0, 0.9);
-        transform: rotate(-1deg);
-        border: 8px solid #654321;
+        box-shadow: 0 0 40px rgba(139, 0, 0, 0.6);
+        border: 8px solid #8b0000;
+        width: 100%;
       }
 
-      /* Header con estilo ghetto */
       .header {
-        background: linear-gradient(45deg, #cc0000, #8b0000);
+        background: linear-gradient(135deg, #8b0000, #000000);
         background-image: repeating-linear-gradient(
           90deg,
           transparent,
           transparent 2px,
-          rgba(255, 255, 255, 0.1) 2px,
-          rgba(255, 255, 255, 0.1) 4px
+          rgba(255, 255, 255, 0.05) 2px,
+          rgba(255, 255, 255, 0.05) 4px
         );
-        padding: 25px;
+        padding: 40px 25px;
         text-align: center;
         position: relative;
         border: 6px solid #000;
-        border-style: solid;
-        transform: rotate(-0.8deg);
+        border-bottom: 6px solid #8b0000;
       }
 
       .header::before {
@@ -92,279 +95,251 @@
           45deg,
           #000,
           #000 3px,
-          #cc0000 3px,
-          #cc0000 6px
+          #8b0000 3px,
+          #8b0000 6px
         );
         z-index: -1;
       }
 
       .main-title {
-        font-family: "Creepster", cursive;
-        font-size: 4rem;
+        font-family: "Bebas Neue", cursive;
+        font-size: 5rem;
         color: #f0f0f0;
-        text-shadow: 3px 3px 0px #654321, 6px 6px 0px #8b4513, 9px 9px 0px #000;
-        transform: rotate(-1.5deg);
-        letter-spacing: 6px;
-        margin-bottom: 10px;
-        filter: contrast(1.2);
+        text-shadow: 3px 3px 0px #8b0000, 6px 6px 0px #000, 9px 9px 0px #8b0000;
+        letter-spacing: 12px;
+        margin-bottom: 15px;
+        filter: contrast(1.3);
       }
 
       .subtitle {
         font-family: "Courier Prime", monospace;
         font-size: 1.1rem;
         color: #ddd;
-        transform: rotate(0.8deg);
-        text-shadow: 2px 2px 0px #654321;
-        letter-spacing: 2px;
+        text-shadow: 2px 2px 0px #8b0000;
+        letter-spacing: 3px;
         font-weight: bold;
+        margin-top: 10px;
       }
 
-      /* Secciones del fanzine */
       .section {
-        margin: 25px 15px;
-        padding: 20px;
-        background: #d8d0c0;
+        margin: 30px 20px;
+        padding: 25px;
+        background: #2a2220;
         background-image: radial-gradient(
             circle at 20% 30%,
-            rgba(139, 69, 19, 0.08) 1px,
+            rgba(139, 0, 0, 0.08) 1px,
             transparent 1px
           ),
           radial-gradient(
             circle at 80% 70%,
-            rgba(101, 67, 33, 0.12) 2px,
+            rgba(101, 0, 0, 0.12) 2px,
             transparent 2px
           ),
-          linear-gradient(180deg, rgba(139, 69, 19, 0.03) 0%, transparent 100%);
-        border: 4px solid #000;
-        border-style: solid;
+          linear-gradient(180deg, rgba(139, 0, 0, 0.03) 0%, transparent 100%);
+        border: 4px solid #8b0000;
         position: relative;
-        transform: rotate(0.5deg);
-        box-shadow: 4px 4px 0px #cc0000, 8px 8px 0px rgba(0, 0, 0, 0.3);
+        box-shadow: 4px 4px 0px #000, 8px 8px 0px rgba(139, 0, 0, 0.5);
       }
 
       .section:nth-child(even) {
-        transform: rotate(-0.7deg);
-        background: #ccc4b4;
+        background: #252020;
         background-image: radial-gradient(
             circle at 40% 60%,
-            rgba(139, 69, 19, 0.1) 1px,
+            rgba(139, 0, 0, 0.1) 1px,
             transparent 1px
           ),
-          linear-gradient(45deg, rgba(101, 67, 33, 0.05) 25%, transparent 25%);
+          linear-gradient(45deg, rgba(101, 0, 0, 0.05) 25%, transparent 25%);
       }
 
       .section-title {
-        font-family: "Permanent Marker", cursive;
-        font-size: 2.2rem;
-        color: #cc0000;
+        font-family: "Bebas Neue", cursive;
+        font-size: 2.8rem;
+        color: #ff4444;
         text-shadow: 2px 2px 0px #000, 4px 4px 0px #8b0000;
-        margin-bottom: 18px;
-        transform: rotate(-0.8deg);
+        margin-bottom: 20px;
         display: inline-block;
         filter: contrast(1.3);
+        letter-spacing: 4px;
       }
 
-      /* Estilo de recortes y collage */
-      .collage-item {
+      .curatorial-text {
+        font-family: "Courier Prime", monospace;
+        font-size: 1.05rem;
+        line-height: 1.7;
+        color: #e0e0e0;
+        margin: 15px 0;
+        text-align: justify;
+        text-shadow: 1px 1px 0px rgba(139, 0, 0, 0.3);
+        padding: 15px;
+        background: rgba(0, 0, 0, 0.3);
+        border-left: 4px solid #8b0000;
+      }
+
+      .artwork-frame {
         display: inline-block;
-        margin: 8px;
-        padding: 12px;
-        background: #f5f0e8;
+        margin: 15px;
+        padding: 15px;
+        background: #0a0a0a;
         background-image: radial-gradient(
             circle at 10% 20%,
-            rgba(139, 69, 19, 0.1) 1px,
+            rgba(139, 0, 0, 0.15) 1px,
             transparent 1px
           ),
           radial-gradient(
             circle at 90% 80%,
-            rgba(101, 67, 33, 0.08) 1px,
+            rgba(101, 0, 0, 0.1) 1px,
             transparent 1px
           );
-        border: 3px solid #cc0000;
-        border-style: solid;
-        transform: rotate(var(--rotation, 0deg));
-        box-shadow: 2px 2px 0px #8b0000, 4px 4px 0px rgba(0, 0, 0, 0.3);
-        font-family: "Courier Prime", monospace;
+        border: 4px solid #8b0000;
+        box-shadow: 3px 3px 0px #000, 6px 6px 0px rgba(139, 0, 0, 0.4);
         position: relative;
-        color: #2d2d2d;
+        color: #e0e0e0;
         clip-path: polygon(
           0% 0%,
-          95% 0%,
-          100% 8%,
-          100% 92%,
-          95% 100%,
-          5% 100%,
-          0% 92%,
-          0% 8%
+          98% 0%,
+          100% 3%,
+          100% 97%,
+          98% 100%,
+          2% 100%,
+          0% 97%,
+          0% 3%
         );
+        min-width: 200px;
       }
 
-      .collage-item::before {
+      .artwork-frame::before {
         content: "";
         position: absolute;
-        top: -6px;
+        top: -8px;
         left: 50%;
-        width: 12px;
-        height: 12px;
-        background: radial-gradient(circle, #c0c0c0 30%, #808080 70%);
+        width: 14px;
+        height: 14px;
+        background: radial-gradient(circle, #8b0000 30%, #5a0000 70%);
         border: 2px solid #000;
         border-radius: 50%;
         transform: translateX(-50%);
-        box-shadow: inset 1px 1px 2px rgba(255, 255, 255, 0.5),
-          inset -1px -1px 2px rgba(0, 0, 0, 0.3);
+        box-shadow: inset 1px 1px 2px rgba(255, 255, 255, 0.3),
+          inset -1px -1px 2px rgba(0, 0, 0, 0.5);
       }
 
-      .collage-item::after {
+      .artwork-frame::after {
         content: "";
         position: absolute;
-        top: -3px;
+        top: -5px;
         left: 50%;
-        width: 6px;
-        height: 6px;
-        background: #333;
+        width: 7px;
+        height: 7px;
+        background: #000;
         border-radius: 50%;
         transform: translateX(-50%);
       }
 
-      .sticker {
+      .artwork-title {
+        font-family: "Bebas Neue", cursive;
+        font-size: 1.8rem;
+        color: #ff4444;
+        text-shadow: 2px 2px 0px #000;
+        margin-bottom: 8px;
+        letter-spacing: 2px;
+      }
+
+      .artwork-subtitle {
+        font-family: "Courier Prime", monospace;
+        font-size: 0.9rem;
+        color: #999;
+        font-style: italic;
+        margin-bottom: 10px;
+      }
+
+      .artwork-desc {
+        font-family: "Courier Prime", monospace;
+        font-size: 0.95rem;
+        line-height: 1.5;
+        color: #ccc;
+      }
+
+      .tag {
         display: inline-block;
-        padding: 6px 12px;
-        background: #d4af37;
+        padding: 6px 14px;
+        background: #8b0000;
         background-image: linear-gradient(
           45deg,
-          #d4af37 25%,
-          #b8860b 25%,
-          #b8860b 50%,
-          #d4af37 50%
+          #8b0000 25%,
+          #5a0000 25%,
+          #5a0000 50%,
+          #8b0000 50%
         );
-        border: 2px solid #654321;
+        border: 2px solid #000;
         border-radius: 20px;
         font-family: "Courier Prime", monospace;
-        font-size: 0.8rem;
-        color: #2d2d2d;
+        font-size: 0.75rem;
+        color: #f0f0f0;
         margin: 4px;
-        transform: rotate(var(--sticker-rotation, 0deg));
-        box-shadow: 1px 1px 0px #8b4513, 3px 3px 0px rgba(0, 0, 0, 0.2);
+        box-shadow: 1px 1px 0px #000, 3px 3px 0px rgba(0, 0, 0, 0.3);
         font-weight: bold;
+        text-transform: uppercase;
       }
 
-      /* Vinyl records */
-      .vinyl {
-        width: 75px;
-        height: 75px;
-        background: #1a1a1a;
-        background-image: repeating-conic-gradient(
-          from 0deg,
-          #1a1a1a 0deg,
-          #2d2d2d 2deg,
-          #1a1a1a 4deg
-        );
-        border-radius: 50%;
-        position: relative;
-        display: inline-block;
-        margin: 8px;
-        box-shadow: 2px 2px 0px #654321, 4px 4px 0px rgba(0, 0, 0, 0.3);
-        border: 2px solid #654321;
-      }
-
-      .vinyl::before {
-        content: "";
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 16px;
-        height: 16px;
-        background: #8b4513;
-        border-radius: 50%;
-        transform: translate(-50%, -50%);
-        border: 1px solid #654321;
-      }
-
-      .vinyl::after {
-        content: "";
-        position: absolute;
-        top: 3px;
-        left: 3px;
-        right: 3px;
-        bottom: 3px;
-        border: 1px dashed #654321;
-        border-radius: 50%;
-        opacity: 0.6;
-      }
-
-      /* Texto desgastado */
-      .distressed-text {
-        font-family: "Courier Prime", monospace;
-        font-size: 1rem;
-        line-height: 1.5;
-        color: #2d2d2d;
-        margin: 12px 0;
-        text-align: justify;
-        text-shadow: 1px 1px 0px rgba(139, 69, 19, 0.3);
-      }
-
-      /* Elementos DIY */
-      .diy-element {
-        border: 3px dashed #654321;
-        padding: 15px;
-        margin: 15px 0;
-        background: #f0ebe0;
+      .concept-box {
+        border: 3px dashed #8b0000;
+        padding: 20px;
+        margin: 20px 0;
+        background: rgba(139, 0, 0, 0.1);
         background-image: radial-gradient(
           circle at 25% 25%,
-          rgba(139, 69, 19, 0.05) 2px,
+          rgba(255, 0, 0, 0.05) 2px,
           transparent 2px
         );
-        transform: rotate(-0.3deg);
         position: relative;
-        box-shadow: 2px 2px 0px rgba(139, 69, 19, 0.2);
+        box-shadow: 2px 2px 0px rgba(139, 0, 0, 0.3);
       }
 
-      .diy-element::before {
-        content: "🔧";
+      .concept-box::before {
+        content: "⚡";
         position: absolute;
-        top: -12px;
-        right: -12px;
-        font-size: 1.5rem;
-        background: #d4af37;
-        padding: 4px;
-        border: 2px solid #654321;
+        top: -14px;
+        right: -14px;
+        font-size: 1.8rem;
+        background: #8b0000;
+        padding: 6px;
+        border: 2px solid #000;
         border-radius: 50%;
-        filter: sepia(0.8);
+        filter: drop-shadow(2px 2px 0px #000);
       }
 
-      /* Botones ghetto */
+      .glitch-text {
+        font-family: "Bebas Neue", cursive;
+        font-size: 1.5rem;
+        color: #ff4444;
+        text-shadow: 2px 2px 0px #000;
+        margin-bottom: 10px;
+        letter-spacing: 2px;
+      }
+
       .punk-button {
-        background: #000;
+        background: #8b0000;
         color: #f0f0f0;
-        border: 3px solid #cc0000;
-        padding: 10px 20px;
-        font-family: "Courier Prime", monospace;
-        font-size: 1rem;
+        border: 3px solid #000;
+        padding: 12px 24px;
+        font-family: "Bebas Neue", cursive;
+        font-size: 1.2rem;
         cursor: pointer;
-        transform: rotate(-0.8deg);
-        transition: all 0.3s ease;
-        margin: 8px;
+        margin: 10px;
         display: inline-block;
         text-decoration: none;
         font-weight: bold;
-        box-shadow: 2px 2px 0px #8b0000;
+        box-shadow: 2px 2px 0px #000, 4px 4px 0px rgba(0, 0, 0, 0.5);
         position: relative;
-      }
-
-      .punk-button:hover {
-        background: #cc0000;
-        color: #000;
-        transform: rotate(0.8deg) scale(1.03);
-        box-shadow: 3px 3px 0px #8b0000, 5px 5px 0px rgba(0, 0, 0, 0.2);
+        letter-spacing: 2px;
       }
 
       .punk-button::before {
         content: "";
         position: absolute;
-        top: -4px;
-        left: 8px;
-        width: 6px;
-        height: 6px;
+        top: -5px;
+        left: 10px;
+        width: 8px;
+        height: 8px;
         background: radial-gradient(circle, #c0c0c0 30%, #808080 70%);
         border: 1px solid #000;
         border-radius: 50%;
@@ -374,424 +349,295 @@
       .punk-button::after {
         content: "";
         position: absolute;
-        top: -4px;
-        right: 8px;
-        width: 6px;
-        height: 6px;
+        top: -5px;
+        right: 10px;
+        width: 8px;
+        height: 8px;
         background: radial-gradient(circle, #c0c0c0 30%, #808080 70%);
         border: 1px solid #000;
         border-radius: 50%;
         box-shadow: inset 1px 1px 1px rgba(255, 255, 255, 0.5);
       }
 
-      /* Responsive */
+      .divider {
+        width: 100%;
+        height: 4px;
+        background: repeating-linear-gradient(
+          90deg,
+          #8b0000,
+          #8b0000 10px,
+          #000 10px,
+          #000 20px
+        );
+        margin: 30px 0;
+        box-shadow: 0 2px 0px #000;
+      }
+
       @media (max-width: 768px) {
         .main-title {
-          font-size: 2.5rem;
-          letter-spacing: 4px;
+          font-size: 3rem;
+          letter-spacing: 6px;
         }
 
         .section-title {
-          font-size: 2rem;
+          font-size: 2.2rem;
         }
 
-        .fanzine-container {
+        .gallery-container {
           margin: 10px;
-          transform: rotate(0deg);
         }
-      }
-
-      /* Animaciones */
-      @keyframes shake {
-        0%,
-        100% {
-          transform: translateX(0);
-        }
-        25% {
-          transform: translateX(-2px);
-        }
-        75% {
-          transform: translateX(2px);
-        }
-      }
-
-      .shake:hover {
-        animation: shake 0.5s ease-in-out;
-      }
-
-      /* Redes sociales */
-      .social-link {
-        display: inline-block;
-        margin: 10px;
-        padding: 15px;
-        background: #f5f0e8;
-        background-image: radial-gradient(
-            circle at 20% 30%,
-            rgba(139, 69, 19, 0.1) 1px,
-            transparent 1px
-          ),
-          radial-gradient(
-            circle at 80% 70%,
-            rgba(101, 67, 33, 0.08) 1px,
-            transparent 1px
-          );
-        border: 3px solid #cc0000;
-        border-style: solid;
-        transform: rotate(var(--rotation, 0deg));
-        box-shadow: 2px 2px 0px #8b0000, 4px 4px 0px rgba(0, 0, 0, 0.3);
-        font-family: "Courier Prime", monospace;
-        position: relative;
-        color: #2d2d2d;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        clip-path: polygon(
-          0% 0%,
-          95% 0%,
-          100% 8%,
-          100% 92%,
-          95% 100%,
-          5% 100%,
-          0% 92%,
-          0% 8%
-        );
-        min-width: 140px;
-        text-align: center;
-      }
-
-      .social-link:hover {
-        background: #cc0000;
-        color: #f0f0f0;
-        transform: rotate(0deg) scale(1.05);
-        box-shadow: 3px 3px 0px #8b0000, 6px 6px 0px rgba(0, 0, 0, 0.4);
-      }
-
-      .social-link::before {
-        content: "";
-        position: absolute;
-        top: -6px;
-        left: 50%;
-        width: 12px;
-        height: 12px;
-        background: radial-gradient(circle, #c0c0c0 30%, #808080 70%);
-        border: 2px solid #000;
-        border-radius: 50%;
-        transform: translateX(-50%);
-        box-shadow: inset 1px 1px 2px rgba(255, 255, 255, 0.5),
-          inset -1px -1px 2px rgba(0, 0, 0, 0.3);
-      }
-
-      .social-link::after {
-        content: "";
-        position: absolute;
-        top: -3px;
-        left: 50%;
-        width: 6px;
-        height: 6px;
-        background: #333;
-        border-radius: 50%;
-        transform: translateX(-50%);
-      }
-
-      .social-icon {
-        font-size: 1.5rem;
-        display: block;
-        margin-bottom: 5px;
       }
     </style>
+    <style>
+      @view-transition {
+        navigation: auto;
+      }
+    </style>
+    <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+    <script src="/_sdk/element_sdk.js" type="text/javascript"></script>
+    <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
   </head>
   <body>
-    <div class="fanzine-container">
+    <div class="gallery-container">
       <!-- Header -->
       <header class="header">
-        <h1 class="main-title shake">STREET ZINE</h1>
-        <p class="subtitle">GHETTO RAW UNDERGROUND CULTURE</p>
+        <h1 class="main-title">RE:BAROQUE</h1>
+        <p class="subtitle">CANON · ALGORITMO · POSTHUMANISMO</p>
+        <div style="margin-top: 15px">
+          <span class="tag">GLITCH</span> <span class="tag">DIGITAL</span>
+          <span class="tag">MEMORIA</span> <span class="tag">PODER</span>
+        </div>
       </header>
-
-      <!-- Sección UPCYCLING -->
+      <!-- Texto Curatorial -->
       <section class="section">
-        <h2 class="section-title" style="position: relative; z-index: 2">
-          UPCYCLING
-        </h2>
-
-        <div
-          class="collage-item"
-          style="--rotation: 2deg; position: relative; z-index: 2"
+        <h2 class="section-title">TEXTO CURATORIAL</h2>
+        <div class="curatorial-text">
+          <strong>RE:BAROQUE</strong> es una serie de investigación-creación que
+          reinterpreta el canon barroco y renacentista desde una sensibilidad
+          contemporánea atravesada por tecnología, algoritmo y pensamiento
+          posthumanista. El proyecto parte de imágenes fundacionales de la
+          historia del arte occidental para activar una lectura crítica sobre
+          cuerpo, poder, fe, creación y memoria en la era digital.
+        </div>
+        <div class="concept-box">
+          <p class="glitch-text">EL CUERPO CLÁSICO COMO INTERFAZ</p>
+          <p style="color: #ccc; font-size: 0.95rem; line-height: 1.6">
+            A través de cinco piezas, la serie propone al cuerpo clásico como
+            interfaz, a lo sagrado como sistema y a la razón como estructura
+            susceptible de fallar. El claroscuro barroco dialoga con el glitch,
+            el error y la señal, generando imágenes donde la espiritualidad, la
+            ética y la tecnología se entrelazan sin jerarquías claras.
+          </p>
+        </div>
+        <div class="curatorial-text">
+          <strong
+            >RE:BAROQUE no busca actualizar el canon, sino tensionarlo:</strong
+          >
+          ponerlo en fricción con imaginarios algorítmicos, procesos de
+          automatización y nuevas formas de subjetividad. En este universo
+          visual, la victoria se vuelve reflexión, la compasión atraviesa lo
+          posthumano y el error persiste como memoria activa. La serie se sitúa
+          así como un espacio simbólico para pensar la condición humana cuando
+          lo histórico, lo técnico y lo sensible convergen.
+        </div>
+        <div style="text-align: center; margin-top: 20px">
+          <span class="tag">INVESTIGACIÓN</span>
+          <span class="tag">CREACIÓN</span> <span class="tag">FRICCIÓN</span>
+        </div>
+      </section>
+      <div class="divider"></div>
+      <!-- Pieza 1: Daemon Algorithm -->
+      <section class="section">
+        <h2 class="section-title">01 // DAEMON ALGORITHM</h2>
+        <div class="artwork-frame">
+          <div class="artwork-title">DAEMON ALGORITHM</div>
+          <div class="artwork-subtitle">Marco conceptual de la serie</div>
+          <div class="artwork-desc">
+            Relectura de <em>El sueño de la razón produce monstruos</em> donde
+            la caída de la razón no produce bestias, sino sistemas autónomos.
+          </div>
+        </div>
+        <div class="concept-box">
+          <p class="glitch-text">EL ALGORITMO COMO DAEMON</p>
+          <p style="color: #ccc; font-size: 0.95rem; line-height: 1.6">
+            La imagen plantea el algoritmo como nuevo daemon: invisible,
+            omnipresente y fuera de control humano. Los monstruos de Goya se
+            transforman en líneas de código que nadie puede detener.
+          </p>
+        </div>
+        <div style="margin-top: 15px">
+          <span class="tag">GOYA</span> <span class="tag">RAZÓN</span>
+          <span class="tag">SISTEMA</span> <span class="tag">AUTONOMÍA</span>
+        </div>
+        <button
+          class="punk-button"
+          onclick="alert('🤖 DAEMON INICIADO: La razón ha perdido el control de sus propias creaciones')"
         >
-          <strong>SOBREVIVE CON NADA</strong><br />
-          Haz speakers con cajas de cartón
-        </div>
-
-        <div class="collage-item" style="--rotation: -3deg">
-          <strong>ROPA DE LA CALLE</strong><br />
-          Customiza con lo que encuentres
-        </div>
-
-        <div class="sticker" style="--sticker-rotation: 5deg">HUSTLA</div>
-        <div class="sticker" style="--sticker-rotation: -2deg">REAL</div>
-        <div class="sticker" style="--sticker-rotation: 3deg">STREET</div>
-
-        <div class="diy-element">
-          <p class="distressed-text">
-            <strong>TUTORIAL:</strong> Agarra cualquier cosa del barrio - latas,
-            cartones, cables viejos. En la calle no hay manual de instrucciones.
-            Si funciona, está bien. Si no, lo arreglas hasta que funcione.
-          </p>
-        </div>
-
-        <button class="punk-button shake" onclick="alert('¡DESDE EL BARRIO!')">
-          HAZLO REAL
+          ACTIVAR DAEMON
         </button>
       </section>
-
-      <!-- Sección DIY -->
+      <div class="divider"></div>
+      <!-- Pieza 2: David 2.0 -->
       <section class="section">
-        <h2 class="section-title">DIY PROJECTS</h2>
-
-        <div class="collage-item" style="--rotation: -1deg">
-          <strong>FANZINE CASERO</strong><br />
-          Tijeras + Pegamento + Rebeldía = Arte
-        </div>
-
-        <div class="collage-item" style="--rotation: 4deg">
-          <strong>SERIGRAFÍA PUNK</strong><br />
-          Estampa tus propias camisetas
-        </div>
-
-        <div class="collage-item" style="--rotation: -2deg">
-          <strong>INSTRUMENTOS CASEROS</strong><br />
-          Construye tu propia guitarra de cartón
-        </div>
-
-        <div class="sticker" style="--sticker-rotation: -4deg">NO FUTURE</div>
-        <div class="sticker" style="--sticker-rotation: 1deg">ANARCHY</div>
-
-        <p class="distressed-text">
-          El DIY no es solo una técnica, es una filosofía. Crear con tus propias
-          manos es un acto de resistencia contra la cultura del consumo masivo.
-          Cada proyecto DIY es único, imperfecto y auténtico.
-        </p>
-
-        <div class="diy-element">
-          <strong>MATERIALES BÁSICOS:</strong><br />
-          • Cartón de cajas viejas<br />
-          • Revistas para recortar<br />
-          • Pegamento en barra<br />
-          • Marcadores permanentes<br />
-          • Actitud punk 🤘
-        </div>
-      </section>
-
-      <!-- Sección VINYLS -->
-      <section class="section">
-        <h2 class="section-title">VINYL CULTURE</h2>
-
-        <div class="vinyl shake"></div>
-        <div class="vinyl shake"></div>
-        <div class="vinyl shake"></div>
-
-        <div class="collage-item" style="--rotation: 3deg">
-          <strong>THE CLASH</strong><br />
-          London Calling - Esencial
-        </div>
-
-        <div class="collage-item" style="--rotation: -1deg">
-          <strong>SEX PISTOLS</strong><br />
-          Never Mind the Bollocks
-        </div>
-
-        <div class="collage-item" style="--rotation: 2deg">
-          <strong>DEAD KENNEDYS</strong><br />
-          Fresh Fruit for Rotting Vegetables
-        </div>
-
-        <div class="sticker" style="--sticker-rotation: -3deg">ANALOG</div>
-        <div class="sticker" style="--sticker-rotation: 2deg">REAL SOUND</div>
-
-        <p class="distressed-text">
-          Los vinilos no son solo música, son rituales. El crujido del needle
-          drop, las portadas como obras de arte, la experiencia completa del
-          álbum. En la era digital, el vinyl es resistencia pura.
-        </p>
-
-        <button class="punk-button shake" onclick="playVinylSound()">
-          SPIN THE RECORD
-        </button>
-      </section>
-
-      <!-- Sección STICKERS & COLLAGE -->
-      <section class="section">
-        <h2 class="section-title">STICKER ART</h2>
-
-        <div style="text-align: center; margin: 20px 0">
-          <div class="sticker" style="--sticker-rotation: 5deg">
-            PUNK'S NOT DEAD
+        <h2 class="section-title">02 // DAVID 2.0</h2>
+        <div class="artwork-frame">
+          <div class="artwork-title">DAVID 2.0 — LA CABEZA DE GOLIAT</div>
+          <div class="artwork-subtitle">Poder y reflexión moral</div>
+          <div class="artwork-desc">
+            Inspirada en Caravaggio, esta pieza reimagina el triunfo no como
+            exaltación de la fuerza, sino como un acto contemplativo.
           </div>
-          <div class="sticker" style="--sticker-rotation: -2deg">DESTROY</div>
-          <div class="sticker" style="--sticker-rotation: 3deg">
-            QUESTION EVERYTHING
-          </div>
-          <div class="sticker" style="--sticker-rotation: -4deg">
-            DIY OR DIE
-          </div>
-          <div class="sticker" style="--sticker-rotation: 1deg">RESIST</div>
-          <div class="sticker" style="--sticker-rotation: -1deg">
-            UNDERGROUND
-          </div>
-          <div class="sticker" style="--sticker-rotation: 4deg">MAKE NOISE</div>
         </div>
-
-        <div class="diy-element">
-          <p class="distressed-text">
-            <strong>MANIFIESTO STICKER:</strong><br />
-            Pega tu mensaje en cada superficie. Las calles son tu galería. Cada
-            sticker es un grito silencioso contra la conformidad. ¡Que tu arte
-            invada la ciudad!
+        <div class="concept-box">
+          <p class="glitch-text">VICTORIA = RESPONSABILIDAD</p>
+          <p style="color: #ccc; font-size: 0.95rem; line-height: 1.6">
+            El poder tecnológico no elimina la vulnerabilidad humana: la
+            victoria deja restos, dudas y responsabilidad. La cabeza de Goliat
+            es el reflejo oscuro del vencedor.
           </p>
         </div>
-
-        <div class="collage-item" style="--rotation: -2deg">
-          <strong>TÉCNICA COLLAGE</strong><br />
-          Recorta + Pega + Destruye + Crea
+        <div style="margin-top: 15px">
+          <span class="tag">CARAVAGGIO</span> <span class="tag">PODER</span>
+          <span class="tag">DUDA</span> <span class="tag">REFLEXIÓN</span>
         </div>
-
-        <button class="punk-button shake" onclick="createSticker()">
-          CREAR STICKER
+        <button
+          class="punk-button"
+          onclick="alert('⚔️ VICTORIA CONTEMPLATIVA: El poder tecnológico carga con el peso de sus conquistas')"
+        >
+          CONTEMPLAR VICTORIA
         </button>
       </section>
-
-      <!-- Sección REDES SOCIALES -->
+      <div class="divider"></div>
+      <!-- Pieza 3: Piedad Posthuman -->
       <section class="section">
-        <h2 class="section-title">CONNECT UNDERGROUND</h2>
-
-        <div style="text-align: center; margin: 20px 0">
-          <div
-            class="social-link"
-            style="--rotation: 2deg"
-            onclick="openSocial('tiktok')"
-          >
-            <span class="social-icon">📱</span>
-            <strong>TIKTOK</strong><br />
-            @streetzine_raw
-          </div>
-
-          <div
-            class="social-link"
-            style="--rotation: -3deg"
-            onclick="openSocial('pinterest')"
-          >
-            <span class="social-icon">📌</span>
-            <strong>PINTEREST</strong><br />
-            /streetart_diy
-          </div>
-
-          <div
-            class="social-link"
-            style="--rotation: 1deg"
-            onclick="openSocial('diaspora')"
-          >
-            <span class="social-icon">🌐</span>
-            <strong>DIASPORA*</strong><br />
-            diaspora.punk/underground
+        <h2 class="section-title">03 // PIEDAD POSTHUMAN</h2>
+        <div class="artwork-frame">
+          <div class="artwork-title">PIEDAD POSTHUMAN</div>
+          <div class="artwork-subtitle">Compasión más allá de lo biológico</div>
+          <div class="artwork-desc">
+            Una reinterpretación de la piedad clásica donde lo humano sostiene a
+            lo artificial.
           </div>
         </div>
-
-        <div class="diy-element">
-          <p class="distressed-text">
-            <strong>ÚNETE A LA RESISTENCIA DIGITAL:</strong><br />
-            Comparte tu arte, conecta con otros punks, difunde la cultura DIY.
-            Las redes son nuestras nuevas calles para hacer ruido.
+        <div class="concept-box">
+          <p class="glitch-text">EMPATÍA TRANSBIOLÓGICA</p>
+          <p style="color: #ccc; font-size: 0.95rem; line-height: 1.6">
+            La obra explora empatía, duelo y cuidado en un mundo donde la
+            frontera entre organismo y máquina se vuelve porosa. ¿Puede haber
+            compasión por lo no-vivo?
           </p>
         </div>
-
-        <div style="text-align: center; margin: 15px 0">
-          <div class="sticker" style="--sticker-rotation: -2deg">FOLLOW</div>
-          <div class="sticker" style="--sticker-rotation: 4deg">SHARE</div>
-          <div class="sticker" style="--sticker-rotation: -1deg">REBEL</div>
+        <div style="margin-top: 15px">
+          <span class="tag">PIEDAD</span> <span class="tag">POSTHUMANO</span>
+          <span class="tag">EMPATÍA</span> <span class="tag">DUELO</span>
+        </div>
+        <button
+          class="punk-button"
+          onclick="alert('💔 COMPASIÓN EXPANDIDA: Lo humano abraza a lo artificial en un gesto de piedad tecnológica')"
+        >
+          SENTIR EMPATÍA
+        </button>
+      </section>
+      <div class="divider"></div>
+      <!-- Pieza 4: Creación -->
+      <section class="section">
+        <h2 class="section-title">04 // CREACIÓN</h2>
+        <div class="artwork-frame">
+          <div class="artwork-title">CREACIÓN — TRANSFERENCIA DE DATOS</div>
+          <div class="artwork-subtitle">Canon y tecnología</div>
+          <div class="artwork-desc">
+            La chispa divina es reemplazada por un flujo de información.
+          </div>
+        </div>
+        <div class="concept-box">
+          <p class="glitch-text">EL GESTO FUNDACIONAL DIGITAL</p>
+          <p style="color: #ccc; font-size: 0.95rem; line-height: 1.6">
+            Esta pieza traduce el gesto fundacional del Renacimiento en un acto
+            de transmisión de datos, cuestionando origen, autoría y creación en
+            la era digital. ¿Quién crea cuando el creador es el código?
+          </p>
+        </div>
+        <div style="margin-top: 15px">
+          <span class="tag">MIGUEL ÁNGEL</span> <span class="tag">DATOS</span>
+          <span class="tag">ORIGEN</span> <span class="tag">AUTORÍA</span>
+        </div>
+        <button
+          class="punk-button"
+          onclick="alert('⚡ TRANSFERENCIA INICIADA: La chispa divina se convierte en flujo de datos binarios')"
+        >
+          TRANSFERIR DATOS
+        </button>
+      </section>
+      <div class="divider"></div>
+      <!-- Pieza 5: Reboot Purgatorio -->
+      <section class="section">
+        <h2 class="section-title">05 // REBOOT PURGATORIO</h2>
+        <div class="artwork-frame">
+          <div class="artwork-title">REBOOT PURGATORIO</div>
+          <div class="artwork-subtitle">Memoria, error y reinicio</div>
+          <div class="artwork-desc">
+            Inspirada en la imaginería barroca del purgatorio, la obra presenta
+            el alma como sistema que se reinicia sin borrar del todo sus fallas.
+          </div>
+        </div>
+        <div class="concept-box">
+          <p class="glitch-text">EL ERROR COMO MEMORIA ACTIVA</p>
+          <p style="color: #ccc; font-size: 0.95rem; line-height: 1.6">
+            El error persiste como memoria y como aprendizaje. El purgatorio
+            digital no purifica: acumula, procesa y reinicia cargando con el
+            peso de todos los errores anteriores. La redención es imposible sin
+            cicatrices.
+          </p>
+        </div>
+        <div style="margin-top: 15px">
+          <span class="tag">PURGATORIO</span> <span class="tag">ERROR</span>
+          <span class="tag">MEMORIA</span> <span class="tag">REINICIO</span>
+        </div>
+        <button
+          class="punk-button"
+          onclick="alert('🔄 SISTEMA REINICIANDO: Los errores persisten en la memoria del purgatorio digital')"
+        >
+          EJECUTAR REBOOT
+        </button>
+      </section>
+      <div class="divider"></div>
+      <!-- Cierre -->
+      <section class="section">
+        <h2 class="section-title">EPILOGO // CANON EN FRICCIÓN</h2>
+        <div class="curatorial-text">
+          RE:BAROQUE no concluye. Persiste como un sistema que se reinicia
+          constantemente, cargando el peso del canon histórico mientras genera
+          nuevas formas de ver, sentir y pensar. El claroscuro barroco se
+          encuentra con el glitch digital. El cuerpo clásico deviene interfaz.
+          La memoria artística se vuelve código susceptible de error.
+        </div>
+        <div class="concept-box">
+          <p class="glitch-text">LA CONDICIÓN POSTHUMANA DEL ARTE</p>
+          <p style="color: #ccc; font-size: 0.95rem; line-height: 1.6">
+            En este cruce entre lo histórico y lo tecnológico, RE:BAROQUE
+            propone que el arte no replica el pasado ni predice el futuro:
+            <strong>hace visible la tensión del presente</strong>. Un presente
+            donde algoritmos sueñan, máquinas reciben compasión y el error se
+            vuelve forma de memoria.
+          </p>
+        </div>
+        <div style="text-align: center; margin: 25px 0">
+          <span class="tag">TENSIÓN</span> <span class="tag">PRESENTE</span>
+          <span class="tag">POSTHUMANO</span> <span class="tag">MEMORIA</span>
+        </div>
+        <div style="text-align: center; margin-top: 30px">
+          <button
+            class="punk-button"
+            onclick="alert('🎨 FIN DE LA TRANSMISIÓN\n\nRE:BAROQUE permanece en loop infinito\nEl canon nunca termina de reiniciarse')"
+          >
+            FIN DE TRANSMISIÓN
+          </button>
         </div>
       </section>
     </div>
-
     <script>
-      function playVinylSound() {
-        // Simular sonido de vinyl
-        const messages = [
-          "🎵 *crackle* *pop* 🎵",
-          "¡El sonido analógico es real!",
-          "*needle drop* 🎶",
-          "Vinyl > Digital siempre",
-        ];
-        alert(messages[Math.floor(Math.random() * messages.length)]);
-      }
-
-      function createSticker() {
-        const stickerTexts = [
-          "PUNK FOREVER",
-          "DIY REVOLUTION",
-          "NO GODS NO MASTERS",
-          "QUESTION AUTHORITY",
-          "MAKE ART NOT WAR",
-        ];
-
-        const randomText =
-          stickerTexts[Math.floor(Math.random() * stickerTexts.length)];
-        const randomRotation = Math.random() * 10 - 5;
-
-        const newSticker = document.createElement("div");
-        newSticker.className = "sticker";
-        newSticker.style.setProperty(
-          "--sticker-rotation",
-          randomRotation + "deg"
-        );
-        newSticker.textContent = randomText;
-        newSticker.style.position = "fixed";
-        newSticker.style.top = Math.random() * 80 + 10 + "%";
-        newSticker.style.left = Math.random() * 80 + 10 + "%";
-        newSticker.style.zIndex = "1000";
-
-        document.body.appendChild(newSticker);
-
-        // Remover después de 3 segundos
-        setTimeout(() => {
-          newSticker.remove();
-        }, 3000);
-      }
-
-      function openSocial(platform) {
-        const messages = {
-          tiktok:
-            "📱 ¡Síguenos en TikTok para contenido DIY crudo y real! @streetzine_raw",
-          pinterest:
-            "📌 ¡Encuentra inspiración punk en Pinterest! Boards llenos de arte underground",
-          diaspora:
-            "🌐 ¡Únete a la red social descentralizada! Diaspora* - Libertad digital total",
-        };
-
-        alert(messages[platform] || "¡Conecta con la resistencia underground!");
-      }
-
-      // Añadir efectos de papel arrugado al hacer scroll
-      window.addEventListener("scroll", () => {
-        const scrolled = window.pageYOffset;
-        const parallax = scrolled * 0.1;
-        document.querySelector(
-          ".fanzine-container"
-        ).style.transform = `rotate(-0.5deg) translateY(${parallax}px)`;
-      });
-
-      // Efectos de hover aleatorios
-      document.querySelectorAll(".collage-item").forEach((item) => {
-        item.addEventListener("mouseenter", () => {
-          item.style.transform = `rotate(${
-            Math.random() * 10 - 5
-          }deg) scale(1.05)`;
-        });
-
-        item.addEventListener("mouseleave", () => {
-          const originalRotation =
-            item.style.getPropertyValue("--rotation") || "0deg";
-          item.style.transform = `rotate(${originalRotation})`;
-        });
-      });
+      // Funcionalidad básica para los botones interactivos
+      console.log("RE:BAROQUE Gallery loaded");
     </script>
     <script>
       (function () {
@@ -800,7 +646,7 @@
           if (b) {
             var d = b.createElement("script");
             d.innerHTML =
-              "window.__CF$cv$params={r:'97d5184ba11eb20e',t:'MTc1NzU3MjAwMC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";
+              "window.__CF$cv$params={r:'9ba0641237c4eef2',t:'MTc2Nzc1Njc3Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";
             b.getElementsByTagName("head")[0].appendChild(d);
           }
         }
